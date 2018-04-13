@@ -1,0 +1,26 @@
+[Unit]
+Description=ITIS's distributed currency daemon
+After=network.target
+
+[Service]
+User=itis
+Group=itis
+
+Type=forking
+PIDFile=/var/lib/itisd/itisd.pid
+
+ExecStart=/usr/bin/itisd -daemon -pid=/var/lib/itisd/itisd.pid \
+          -conf=/etc/itis/itis.conf -datadir=/var/lib/itisd
+
+ExecStop=-/usr/bin/itis-cli -conf=/etc/itis/itis.conf \
+         -datadir=/var/lib/itisd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

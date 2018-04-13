@@ -1,0 +1,26 @@
+# /etc/conf.d/itisd: config file for /etc/init.d/itisd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/itis/itis.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/itisd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/itisd.pid"
+
+# Where to write itisd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/itisd"
+
+# User and group to own itisd process
+#BITCOIND_USER="itis"
+#BITCOIND_GROUP="itis"
+
+# Path to itisd executable
+#BITCOIND_BIN="/usr/bin/itisd"
+
+# Nice value to run itisd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
